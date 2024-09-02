@@ -1,26 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML com JS</title>
-    <link rel="stylesheet" href="./main.css" />
+    <title>Lista de Tarefas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Exercicio Ebac</h1>
-        <form id="form-deposito">
-            <p></p>
-            <input  type="number" id="Campo-A" required placeholder="Digite um numero" />
-            <input  type="number" id="Campo-B" required placeholder="Digite um numero" />
-            <button id="verifique" type="submit">Verificar</button>
+    <header>
+        <h1>Lista de Tarefas</h1>
+    </header>
+    <main>
+        <form id="form-tarefa">
+            <input type="text" id="nome_da_tarefa" placeholder="Nome da Tarefa">
+            <button type="submit" id="adicionar">Adicionar</button>
+            <button type="reset" id="botao-limpar">Limpar</button>
         </form>
-        <p class="sucess-message">
-            O numero do Campo B: <b>1000</b> é maior que numero do Campo A: <b>500</b>
-            <p class="error-message">
-            O numero do Campo A: <b>1000</b> é maior que numero do Campo B: <b>500</b>  
-    </div>
+        <div id="lista">
+            <ul id="lista-tarefas">
+                <li>
+                    <h2>Minha Lista</h2>
+                </li>
+                <li id="#tarefas">
+                </li>
+            </ul>    
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Criado por Erick Alves</p>
+      </footer>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./main.js"></script>
 </body>
 </html>

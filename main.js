@@ -1,35 +1,24 @@
-const form = document.getElementById('form-deposito');
+$(document).ready(function() {
+    // Adicionar tarefa
+    $('#form-tarefa').submit(function(event) {
+        event.preventDefault();
+        var tarefa = $('#nome_da_tarefa').val();
+        if (tarefa !== '') {
+            $('#lista-tarefas').append('<li>' + tarefa + '</li>');
+            $('#nome_da_tarefa').val('');
+        }
+    });
 
-function validaNumero(CampoA,CampoB) {
-    if (parseFloat(CampoA.value) < parseFloat(CampoB.value))
-        return true;
-    else
-        return false;
+    $('#botao-limpar').click(function() {
+        $('#lista-tarefas').empty();
+        $("h2").slideUp("slow");
+    });
 
-}
-form.addEventListener('submit', function(e){
-    let verifique = false;
-    e.preventDefault();
-    const CampoA = document.getElementById('Campo-A');
-    const CampoB = document.getElementById('Campo-B')
-    const mensagemSucesso = `O número do Campo B: <b>${CampoB.value}</b> é maior do que o número do Campo A: <b>${CampoA.value}</b>.`;
-    verifique = validaNumero(CampoA,CampoB);
-    const mensagemErro = `O número do Campo A: <b>${CampoA.value}</b> é maior do que o número do Campo B: <b>${CampoB.value}</b>.`;
-    if (verifique) {
-        const containerMensagemSucesso = document.querySelector('.sucess-message');
-        containerMensagemSucesso.innerHTML = mensagemSucesso;
-        containerMensagemSucesso.style.display = 'block';
+    $('#lista-tarefas').on('click', 'li', function() {
+        $(this).toggleClass('concluida');
+    });
+    $("#adicionar").click(function(){
+        $("h2").slideDown("slow");
+    });
 
-        CampoA.value='';
-        CampoB.value='';
-    }
-    else{
-        const containerMensagemErro = document.querySelector('.error-message');
-        containerMensagemErro.innerHTML = mensagemErro;
-        containerMensagemErro.style.display = 'block';
-
-        CampoA.value='';
-        CampoB.value='';
-    }
-})
-console.log(form);
+});
